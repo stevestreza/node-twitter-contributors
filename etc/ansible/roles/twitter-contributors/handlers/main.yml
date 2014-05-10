@@ -1,0 +1,7 @@
+---
+
+- name: update node modules
+  shell: npm install
+
+- name: restart twitter contributors
+  supervisorctl: name=twitter_contributors state=restarted

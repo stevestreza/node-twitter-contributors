@@ -1,0 +1,31 @@
+---
+
+- name: Install Twitter Contributors packages
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - sqlite3
+    - supervisor
+
+- name: Ensure supervisord is started
+  service: name=supervisor state=started
+
+- name: Clone Twitter Contributors Git repository
+  git: repo={{ twitter_contributors_git_url }} dest={{ twitter_contributors_path }} version={{ twitter_contributors_git_version }}
+  notify: 
+    - update node modules
+    - restart twitter contributors
+
+- name: Install Twitter Contributors configuration
+  template: src=config.json.j2 dest={{ twitter_contributors_path }}/config.json
+  notify: restart twitter contributors
+
+- name: Install Twitter Contributors supervisor.d configuration
+  template: src=etc_supervisor_conf_d_twitter_contributors.conf.j2 dest=/etc/supervisor/conf.d/twitter_contributors.conf
+  notify: restart twitter contributors
+
+- name: Ensure node_modules folder exists
+  shell: npm install creates={{ twitter_contributors_path }}/node_modules chdir={{ twitter_contributors_path }}
+  notify: restart twitter contributors
+
+- name: Ensure Twitter Contributors is running
+  supervisorctl: name=twitter_contributors state=started

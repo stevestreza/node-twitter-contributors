@@ -1,0 +1,25 @@
+---
+
+twitter_contributors_git_url: "https://github.com/Roach/node-twitter-contributors.git"
+twitter_contributors_path: "/var/lib/twitter_contributors"
+twitter_contributors_git_version: HEAD
+
+twitter_contributors_twitter_screen_name: ""
+
+twitter_contributors_twitter_user_id: ""
+twitter_contributors_twitter_admin_id: ""
+
+twitter_contributors_twitter_consumer_key: ""
+twitter_contributors_twitter_consumer_secret: ""
+twitter_contributors_twitter_oauth_token: ""
+twitter_contributors_twitter_oauth_secret: ""
+
+twitter_contributors_twitter_tweet_rate: 30
+
+twitter_contributors_tumblr_blog_name: ""
+twitter_contributors_tumblr_blog_url: ""
+
+twitter_contributors_tumblr_consumer_key: ""
+twitter_contributors_tumblr_consumer_secret: ""
+twitter_contributors_tumblr_oauth_token: ""
+twitter_contributors_tumblr_oauth_secret: ""

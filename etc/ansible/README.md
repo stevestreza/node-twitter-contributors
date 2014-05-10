@@ -1,0 +1,3 @@
+This folder contains an Ansible role for deploying `node-twitter-contributors` with `supervisord`. All of the necessary values are listed as variables in `defaults/main.yml`, which you should override in a `vars` file (or in the defaults file directly). 
+
+**This role assumes you have node.js already installed.** There are plenty of roles available for node.js, e.g. on [Ansible Galaxy](https://galaxy.ansible.com/).
